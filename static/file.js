@@ -54,17 +54,17 @@ $(() => {
  	        var imgarr=animateimg.split('\\');
  	        var myimg=imgarr[imgarr.length-1];
             var houzui = myimg.lastIndexOf('.');
- 	        var ext = myimg.substring(houzui, myimg.length).toUpperCase();  
+ 	        var ext = myimg.substring(houzui, myimg.length).toUpperCase();
  	        var file = files[i];
  	        if(!file){return false;}
  	        var fileSize = file.size;
             var maxSize = 5242880*20*2;
-            // if(ext !='.PNG' && ext !='.GIF' && ext !='.JPG' && ext !='.JPEG' && ext !='.BMP'&& ext !='.SVG'&& ext !='.TIF'&& ext !='.ICO'&& ext !='.3GP'&& ext !='.AVI'&& ext !='.FLV'&& ext !='.MOV'&& ext !='.MKV'&& ext !='.MP4'&& ext !='.MP3'&& ext !='.FLAC'&& ext !='.WEBP'&& ext !='.MPG'&& ext !='.MPEG'&& ext !='.M3U8'&& ext !='.RM'&& ext !='.RMVB'&& ext !='.TS'&& ext !='.wmv'&& ext !='.asf'&& ext !='.webm'&& ext !='.ogg'&& ext !='.ACC'&& ext !='.M4A'&& ext !='.APE'&& ext !='.TXT'&& ext !='.JSON'&& ext !='.DOC'&& ext !='.DOCX'&& ext !='.XLS'&& ext !='.XLSX'&& ext !='.CSV'&& ext !='.SQL'&& ext !='.BAK'&& ext !='.PPT'&& ext !='.PPTX'&& ext !='.ZIP'&& ext !='.RAR'&& ext !='.7Z'&& ext !='.GZ'&& ext !='.TAR'&& ext !='.ISO'&& ext !='.MD'&& ext !='.SH'){  
- 		    //     parent.alert('文件类型错误,请上传图片类型');
- 		    //     $('#file').val(null);return false;  
- 	        // }else 
-            if(parseInt(fileSize) >= parseInt(maxSize)){  
- 		        parent.alert('上传的文件不能超过'+maxSize/1024/1024+'MB');return false;  
+            if(ext !='.PNG' && ext !='.GIF' && ext !='.JPG' && ext !='.JPEG' && ext !='.BMP'&& ext !='.SVG'&& ext !='.TIF'&& ext !='.ICO'&& ext !='.3GP'&& ext !='.AVI'&& ext !='.FLV'&& ext !='.MOV'&& ext !='.MKV'&& ext !='.MP4'&& ext !='.MP3'&& ext !='.FLAC'&& ext !='.WEBP'&& ext !='.MPG'&& ext !='.MPEG'&& ext !='.M3U8'&& ext !='.RM'&& ext !='.RMVB'&& ext !='.TS'&& ext !='.wmv'&& ext !='.asf'&& ext !='.webm'&& ext !='.ogg'&& ext !='.ACC'&& ext !='.M4A'&& ext !='.APE'&& ext !='.TXT'&& ext !='.JSON'&& ext !='.DOC'&& ext !='.DOCX'&& ext !='.XLS'&& ext !='.XLSX'&& ext !='.CSV'&& ext !='.SQL'&& ext !='.BAK'&& ext !='.PPT'&& ext !='.PPTX'&& ext !='.ZIP'&& ext !='.RAR'&& ext !='.7Z'&& ext !='.GZ'&& ext !='.TAR'&& ext !='.ISO'&& ext !='.MD'&& ext !='.SH'){
+ 		        parent.alert('只能上传图片类型！');
+ 		        $('#file').val(null);return false;
+ 	        }else
+            if(parseInt(fileSize) >= parseInt(maxSize)){
+ 		        parent.alert('上传的文件不能超过！'+maxSize/1024/1024+'MB');return false;
  	        }else{
  	        document.querySelector('.container').classList.add('start')
  	        var type = $('#id');
@@ -126,7 +126,7 @@ $(() => {
                 dataType: 'json',
                 processData: false,
                 contentType: false,
-                
+
                 data: formData,
                 xhr: () => {
                     let xhr = $.ajaxSettings.xhr();
@@ -169,17 +169,17 @@ $(() => {
                                 .find('#Imgs_url')
                                 .attr({
                                     value: imgSrc
-                                }); 
+                                });
                             $('.' + randomClass)
                                 .find('#Imgs_html')
                                 .attr({
                                     value: '<img src="'+imgSrc+'"/>'
-                                }); 
+                                });
                             $('.' + randomClass)
                                 .find('#Imgs_Ubb')
                                 .attr({
                                     value: '[img]'+imgSrc+'[/img]'
-                                }); 
+                                });
                             $('.' + randomClass)
                                 .find('#Imgs_markdown')
                                 .attr({
@@ -249,10 +249,10 @@ function chage(obj){
         // if(obj.indexOf("cf-ipfs.com")!=-1){
         //     var newurl = 'https://bafybeidzqxzosahqotekbeb47i6ubstxtkmoxva4oi6fs77siyqqwz6nxq.ipfs.cf-ipfs.com/';
         // }else{
-            
+
         // }
         var newurl = 'https://'+obj.value+"/ipfs/"+id;
-		
+
 		document.querySelectorAll("#show")[i].value = newurl;
 		document.querySelectorAll(".list .file #url")[i].href=newurl;
 		//console.log(newurl);
@@ -260,7 +260,7 @@ function chage(obj){
 }
 function copyAll(obj){
 	var icu = "";
-	for(var i=0;i<document.querySelectorAll('#show').length;i++){; 
+	for(var i=0;i<document.querySelectorAll('#show').length;i++){;
 		var icu = icu + document.querySelectorAll('#show')[i].value + '\n';
 	}
 	var txa = document.createElement('textarea');
